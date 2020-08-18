@@ -6,7 +6,7 @@
 class nBlock_StringFormat: public nBlockSimpleNode<1> {
 public:
     nBlock_StringFormat(const char * formatString);
-    void triggerInput(uint32_t inputNumber, uint32_t value);
+    void triggerInput(nBlocks_Message message);
     void endFrame(void);
 private:
     char string_buffer_in[256];

@@ -6,11 +6,23 @@ nBlock_StringFormat::nBlock_StringFormat(const char * formatString) {
     _format = formatString; // Let's keep a pointer to this constant string
 	string_buffer_in[0] = 0; 
 	string_buffer_out[0] = 0; 
+	outputType[0] = OUTPUT_TYPE_STRING;
 }
 
-void nBlock_StringFormat::triggerInput(uint32_t inputNumber, uint32_t value) { // inputNumber is ignored
+void nBlock_StringFormat::triggerInput(nBlocks_Message message) {
     // Insert the value into the format string, and save it into the string buffer
-    sprintf(string_buffer_in, _format, value);
+	// but use a different source value deppending on type
+	switch (message.dataType) {
+		case OUTPUT_TYPE_INT:
+			sprintf(string_buffer_in, _format, message.intValue);
+			break;
+		case OUTPUT_TYPE_STRING:
+			sprintf(string_buffer_in, _format, message.stringValue);
+			break;
+		case OUTPUT_TYPE_FLOAT:
+			sprintf(string_buffer_in, _format, message.floatValue);
+			break;
+	}
 	
 	// Includes the null-termination
 	// this is required to distinguish between a string of length 0 and
