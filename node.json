@@ -1,0 +1,31 @@
+{
+    "category": "String",
+    "inputs": 1, 
+    "name": "StringFormat", 
+    "parameters": [
+        {
+            "default": "Value: %d\\n", 
+            "type": "string", 
+            "name": "Format", 
+            "value": "Value: %d\\n", 
+            "options": [
+                ""
+            ]
+        }
+    ], 
+    "outputs": 1, 
+    "labels": {
+        "input": [], 
+        "output": []
+    }, 
+    "schematic_pins": {
+        "inputs": [
+            1
+        ], 
+        "outputs": [
+            2
+        ]
+    }, 
+    "repository": "https://github.com/nblocksStudioNodes/nblocks_stringformat", 
+    "revision": ""
+}
